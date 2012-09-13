@@ -27,7 +27,7 @@ our @EXPORT = qw(
  Apply_on_perms
 );
 
-our $VERSION = '0.03';
+our $VERSION = '0.031';
 
 
 sub new
@@ -271,27 +271,34 @@ isn't stored.
 
 =head2 EXPORT
 
-Permute [index, $ref_array]
+=item Permute [index, $ref_array]
+
     Returns a reference on the index^{th} permutation for the array. This function
     should be called directly as in the exemple.
 
-Apply_on_Perms [func, $ref_array]
+=item Apply_on_perms [func, $ref_array]
+
     Applies the function on each permutation (this interface is
     efficient but limited).
 
-new [ref_array]
+=item new [ref_array]
+
     Returns a permutor object for the given items.
 
-next
+=item next
+
     Called on a permutor, it returns a reference on the array contening the next permutation.
 
-prev
+=item prev
+
     Called on a permutor, it returns a reference on the array contening the previous permutation.
 
-cur
+=item cur
+
     Called on a permutor, it returns a reference on the array contening the current permutation.
 
-permutation [index, @array]
+=item permutation [index, @array]
+
     Called on a permutor, it returns a reference on a array contening index^{th} permutation for the array.
 
 
