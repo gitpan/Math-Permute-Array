@@ -17,7 +17,7 @@ our @ISA = qw(Exporter);
 # will save memory.
 our %EXPORT_TAGS = ( 'all' => [ qw()],
                      'Permute' => [ qw(Permute) ],
-                     'Apply_on_perms' => [ qw(Apply_on_Perms) ]
+                     'Apply_on_perms' => [ qw(Apply_on_perms) ]
                    );
 
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
@@ -27,7 +27,7 @@ our @EXPORT = qw(
  Apply_on_perms
 );
 
-our $VERSION = '0.031';
+our $VERSION = '0.032';
 
 
 sub new
@@ -217,7 +217,7 @@ iterating with prev, cur and next.
     }
 
     print "Apply a function on all permutations\n";
-    Math::Permute::Array::Apply_on_Perms { print "@_\n"} \@array;
+    Math::Permute::Array::Apply_on_perms { print "@_\n"} \@array;
 
 
 the output should be:
@@ -273,33 +273,33 @@ isn't stored.
 
 =item Permute [index, $ref_array]
 
-    Returns a reference on the index^{th} permutation for the array. This function
-    should be called directly as in the exemple.
+Returns a reference on the index^{th} permutation for the array. This function
+should be called directly as in the exemple.
 
 =item Apply_on_perms [func, $ref_array]
 
-    Applies the function on each permutation (this interface is
-    efficient but limited).
+Applies the function on each permutation (this interface is
+efficient but limited).
 
 =item new [ref_array]
 
-    Returns a permutor object for the given items.
+Returns a permutor object for the given items.
 
 =item next
 
-    Called on a permutor, it returns a reference on the array contening the next permutation.
+Called on a permutor, it returns a reference on the array contening the next permutation.
 
 =item prev
 
-    Called on a permutor, it returns a reference on the array contening the previous permutation.
+Called on a permutor, it returns a reference on the array contening the previous permutation.
 
 =item cur
 
-    Called on a permutor, it returns a reference on the array contening the current permutation.
+Called on a permutor, it returns a reference on the array contening the current permutation.
 
 =item permutation [index, @array]
 
-    Called on a permutor, it returns a reference on a array contening index^{th} permutation for the array.
+Called on a permutor, it returns a reference on a array contening index^{th} permutation for the array.
 
 
 

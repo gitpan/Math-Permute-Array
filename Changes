@@ -1,5 +1,13 @@
-Revision history for Perl extension SimplePermutation.
+Revision history for Perl extension Math::Permute::Array.
 
+0.032  Thu Sep 13 14:41:28 2012
+  - update the documentation and improve the tests
+0.031  Thu Sep 13 11:41:28 2012
+  - update the documentation
+0.03  Thu Sep 13 10:41:28 2012
+  - add the function Apply_on_perms to reduce the call function cost
+0.02  Wed Sep 12 23:41:28 2012
+  - Change the name of the module and immprove the performances.
 0.01  Wed Sep 12 16:41:28 2012
 	- original version; created by h2xs 1.23 with options
 		-b 5.9.0 -XAn SimplePermutation
