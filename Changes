@@ -1,0 +1,6 @@
+Revision history for Perl extension SimplePermutation.
+
+0.01  Wed Sep 12 16:41:28 2012
+	- original version; created by h2xs 1.23 with options
+		-b 5.9.0 -XAn SimplePermutation
+

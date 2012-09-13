@@ -1,0 +1,9 @@
+Changes
+Makefile.PL
+MANIFEST
+README
+t/t0.t
+t/t1.t
+t/t2.t
+lib/Math/Permute/Array.pm
+META.yml                                 Module meta-data (added by MakeMaker)
