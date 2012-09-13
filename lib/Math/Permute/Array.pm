@@ -17,17 +17,17 @@ our @ISA = qw(Exporter);
 # will save memory.
 our %EXPORT_TAGS = ( 'all' => [ qw()],
                      'Permute' => [ qw(Permute) ],
-                     'Permute_func' => [ qw(Permute_func) ]
+                     'Apply_on_perms' => [ qw(Apply_on_Perms) ]
                    );
 
 our @EXPORT_OK = ( @{ $EXPORT_TAGS{'all'} } );
 
 our @EXPORT = qw(
  Permute
- Permute_func
+ Apply_on_perms
 );
 
-our $VERSION = '0.02';
+our $VERSION = '0.03';
 
 
 sub new
@@ -96,7 +96,7 @@ sub permutation
   return \@res;
 }
 
-sub Permute_func(&@)
+sub Apply_on_perms(&@)
 {
   my $func = shift;
   my $array = shift;
@@ -184,32 +184,44 @@ iterating with prev, cur and next.
 
     use Math::Permute::Array;
 
-    print "permutation with direct call to Permute\n";
+    print "permutation with direct call to Permutate\n";
     my $i;
-    foreach $i (0..6){
-      my @tmp = Math::Permute::Array::Permute($i,(1,2,3));
+    my @array = (1,2,3);
+    foreach $i (0..5){
+      my @tmp = @{Math::Permute::Array::Permute($i,\@array)};
       print "@tmp\n";
     }
 
     print "permutation with counter\n";
-    my $p = new Math::Permute::Array((1,2,3));
-    my $i;
-    foreach $i (0..$p->cardinal()){
-      my @tmp = $p->permutation($i);
+    my $p = new Math::Permute::Array(\@array);
+    foreach $i (0..$p->cardinal()-1){
+      my @tmp = @{$p->permutation($i)};
       print "@tmp\n";
     }
 
     print "permutation with next\n";
-    my $p = new Math::Permute::Array((1,2,3));
-    my $i;
-      my @tmp = $p->cur();
+    $p = new Math::Permute::Array(\@array);
+      my @tmp = @{$p->cur()};
       print "@tmp\n";
-    foreach $i (1..$p->cardinal()){
-      @tmp = $p->next();
+    foreach $i (1..$p->cardinal()-1){
+      @tmp = @{$p->next()};
       print "@tmp\n";
     }
 
+    print "permutation with prev\n";
+    my $tmp=\@tmp;
+    while(defined $tmp){
+      @tmp = @{$tmp};
+      print "@tmp\n";
+      $tmp = $p->prev();
+    }
+
+    print "Apply a function on all permutations\n";
+    Math::Permute::Array::Apply_on_Perms { print "@_\n"} \@array;
+
+
 the output should be:
+
     permutation with direct call to Permute
     1 2 3
     2 1 3
@@ -234,6 +246,14 @@ the output should be:
     2 3 1
     3 2 1
     1 2 3
+    Apply a function on all permutations
+    1 2 3
+    2 1 3
+    3 1 2
+    1 3 2
+    2 3 1
+    3 2 1
+    1 2 3
 
 
 =head1 DESCRIPTION
@@ -251,24 +271,28 @@ isn't stored.
 
 =head2 EXPORT
 
-Permute [index, @array]
-    Returns the index^{th} permutation for the array. This function
+Permute [index, $ref_array]
+    Returns a reference on the index^{th} permutation for the array. This function
     should be called directly as in the exemple.
 
-new [@array]
+Apply_on_Perms [func, $ref_array]
+    Applies the function on each permutation (this interface is
+    efficient but limited).
+
+new [ref_array]
     Returns a permutor object for the given items.
 
 next
-    Called on a permutor, it returns an array contening the next permutation.
+    Called on a permutor, it returns a reference on the array contening the next permutation.
 
 prev
-    Called on a permutor, it returns an array contening the previous permutation.
+    Called on a permutor, it returns a reference on the array contening the previous permutation.
 
 cur
-    Called on a permutor, it returns an array contening the current permutation.
+    Called on a permutor, it returns a reference on the array contening the current permutation.
 
 permutation [index, @array]
-    Called on a permutor, it returns the index^{th} permutation for the array.
+    Called on a permutor, it returns a reference on a array contening index^{th} permutation for the array.
 
 
 
@@ -283,7 +307,7 @@ permutation [index, @array]
 
 =head1 AUTHOR
 
-jean-noel quintin, E<lt>quintin_at___imag_dot___frE<gt>
+jean-noel quintin, E<lt>quintin_at_imag_dot_frE<gt>
 
 =head1 COPYRIGHT AND LICENSE
 

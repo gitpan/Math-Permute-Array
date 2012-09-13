@@ -16,9 +16,6 @@ BEGIN { use_ok('Math::Permute::Array') };
 # Insert your test code below, the Test::More module is use()ed here so read
 # its man page ( perldoc Test::More ) for help writing this test script.
 
-my $i;
 my @array = (1..8);
-#my @array = (1..4);
-#  for($i=0; $i < 362880; $i++){
-Math::Permute::Array::Permute_func { } \@array;
+Math::Permute::Array::Apply_on_perms { } \@array;
 
