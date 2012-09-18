@@ -1,5 +1,7 @@
 Revision history for Perl extension Math::Permute::Array.
 
+0.0421   Thu Sep 18 20:31:28 2012
+  - remove a wrong line inside Makefile.PL
 0.042   Thu Sep 18 20:31:28 2012
   - remove UTF-8 caracters to be more portable
   - improve the documentation

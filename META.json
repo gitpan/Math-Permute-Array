@@ -34,10 +34,11 @@
       },
       "runtime" : {
          "requires" : {
+            "Test::More" : 0,
             "perl" : "5.006001"
          }
       }
    },
    "release_status" : "stable",
-   "version" : "0.042"
+   "version" : "0.0421"
 }

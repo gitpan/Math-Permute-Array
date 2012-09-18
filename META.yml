@@ -20,5 +20,6 @@ no_index:
     - t
     - inc
 requires:
+  Test::More: 0
   perl: 5.006001
-version: 0.042
+version: 0.0421
