@@ -9,6 +9,8 @@ WriteMakefile(
               PREREQ_PM => {
                       # Require Test::More at least 0.47
                       "Test::More" => "0",
+                      "Test::Pod"  => "1.00",
+                      "Test::Pod::Coverage"  => "1.00",
                       },
               VERSION_FROM       => 'lib/Math/Permute/Array.pm', # finds $VERSION
               MIN_PERL_VERSION   => '5.6.1',

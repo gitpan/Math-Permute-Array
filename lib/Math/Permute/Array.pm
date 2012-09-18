@@ -26,7 +26,7 @@ our @EXPORT = qw(
  Apply_on_perms
 );
 
-our $VERSION = '0.0421';
+our $VERSION = '0.043';
 
 
 sub new
@@ -62,7 +62,7 @@ sub Permute
 {
   my $rest = shift;
   my $array = shift;
-  return undef unless (defined $rest or defined $array);
+  return undef unless (defined $rest and defined $array);
   my @array = @{$array};
   my @res;
 
@@ -85,7 +85,7 @@ sub permutation
 {
   my $self = shift;
   my $rest = shift;
-  return undef unless (defined $self and defined $rest);
+  return undef unless (defined $rest);
   my @array = @{$self->{array}};
   my @res;
   my $i = 0;
@@ -143,7 +143,7 @@ sub prev
 sub next
 {
   my $self = shift;
-  return undef if($self->{iterator} == $self->cardinal());
+  return undef if($self->{iterator} >= $self->cardinal() - 1);
   $self->{iterator}++;
   return Math::Permute::Array::Permute($self->{iterator},$self->{array});
 }

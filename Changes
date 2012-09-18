@@ -1,5 +1,17 @@
 Revision history for Perl extension Math::Permute::Array.
 
+0.04 provides more checking on the provided parameters and more tests (close to be the last version)
+0.03 provides a new API which more efficient and some tests
+0.02 provides a new name which is better
+
+
+
+0.043   Thu Sep 18 21:14:28 2012
+  - add the coverage summarize inside the sources
+  every parts of the code are tested now
+  - the case that a undefined value is provided is took into account
+  - this version could be the called the stable version just wait the
+  feedback of some testers
 0.0421   Thu Sep 18 20:31:28 2012
   - remove a wrong line inside Makefile.PL
 0.042   Thu Sep 18 20:31:28 2012

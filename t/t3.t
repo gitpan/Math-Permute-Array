@@ -34,3 +34,12 @@ exit(-3) if(defined $err);
 
 $err = Math::Permute::Array::Apply_on_perms(undef,undef);
 exit(-4) if(defined $err);
+
+$err = Math::Permute::Array::Permute(undef,undef);
+exit(-5) if(defined $err);
+
+$err = Math::Permute::Array::Permute(0,undef);
+exit(-5) if(defined $err);
+
+$err = Math::Permute::Array::Permute(undef,\@array);
+exit(-6) if(defined $err);

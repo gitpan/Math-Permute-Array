@@ -23,7 +23,21 @@ To install this module type the following:
 
 DEPENDENCIES
 
-This module doesn't require these other modules any libraries.
+This module requires:
+   -for building:
+     --ExtUtils::MakeMaker
+   -for testing:
+     --Test::More
+     --Test::Pod (not mandatory)
+     --Test::Pod::Coverage (not mandatory)
+   -for the example:
+     --File::Basename
+   -for using:
+     -- nothing more than Perl core
+
+All mandatory dependencies are usually provide with the basic perl
+package.
+
 
 
 COPYRIGHT AND LICENCE

@@ -21,5 +21,7 @@ no_index:
     - inc
 requires:
   Test::More: 0
+  Test::Pod: 1.00
+  Test::Pod::Coverage: 1.00
   perl: 5.006001
-version: 0.0421
+version: 0.043
