@@ -21,9 +21,11 @@ my @array = (1,2,3,4,5,6,7,8);
 
 print "permutation with next\n";
 my $p = new Math::Permute::Array(\@array);
-  my @tmp = @{$p->cur()};
+my @tmp = @{$p->cur()};
 #  print "@tmp\n";
-foreach $i (1..$p->cardinal()-1){
+my $card = $p->cardinal();
+exit(-1) unless defined $card;
+foreach $i (1..$card - 1){
   @tmp = @{$p->next()};
 #  print "@tmp\n";
 }

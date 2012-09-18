@@ -1,10 +1,14 @@
 Changes
 Makefile.PL
 MANIFEST
+META.yml
 README
 t/t0.t
 t/t1.t
 t/t2.t
 t/t3.t
+t/t-pod.t
+t/pod-coverage.t
+examples/test.pl
 lib/Math/Permute/Array.pm
-META.yml                                 Module meta-data (added by MakeMaker)
+META.json                                Module JSON meta-data (added by MakeMaker)

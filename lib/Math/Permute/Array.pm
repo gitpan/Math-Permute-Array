@@ -27,7 +27,7 @@ our @EXPORT = qw(
  Apply_on_perms
 );
 
-our $VERSION = '0.04';
+our $VERSION = '0.041';
 
 
 sub new
@@ -109,7 +109,7 @@ sub Apply_on_perms(&@)
   my $j;
   my @array = @{$array};
   my $size = $#array+1;
-  my $card =factorial($size);
+  my $card = factorial($size);
   my @res;
   for($j=0;$j<$card;$j++){
     @res = ();
@@ -153,8 +153,7 @@ sub cardinal
 {
   my $self = shift;
   unless(defined $self->{cardinal}){
-    my @array=@{$self->{array}};
-    $self->{cardinal} = factorial($#array+1);
+    $self->{cardinal} = factorial($#{$self->{array}} + 1);
   }
   return $self->{cardinal};
 }
@@ -162,14 +161,15 @@ sub cardinal
 #this part come from:
 # www.theperlreview.com/SamplePages/ThePerlReview-v5i1.p23.pdf
 # Author: Alberto Manuel Simões
-sub factorial {
-  my $v = shift;
-  my $res = 1;
-  while ($v > 1) {
-    $res *= $v;
-    $v--;
-  }
-  return $res;
+sub factorial
+{
+    my $value = shift;
+    my $res = 1;
+    while ($value > 1) {
+      $res *= $value;
+      $value--;
+    }
+    return $res;
 }
 
 1;
@@ -275,10 +275,12 @@ isn't stored.
 
 =head2 EXPORT
 
+=over
+
 =item Permute [index, $ref_array]
 
 Returns a reference on the index^{th} permutation for the array. This function
-should be called directly as in the exemple.
+should be called directly as in the example.
 
 =item Apply_on_perms [func, $ref_array]
 
@@ -305,9 +307,26 @@ Called on a permutor, it returns a reference on the array contening the current 
 
 Called on a permutor, it returns a reference on a array contening index^{th} permutation for the array.
 
+=item cardinal
 
+Called on a permutor, it returns the number of permutations
+
+=back
+
+=head2 Internal functions
+
+=over
+
+=item factorial [n]
+
+returns the factorial of n. This is a internal function to calculate the
+number of permutations.
+
+=back
 
 =head1 SEE ALSO
+
+=over
 
 =item L<Math::Permute::List>
 
@@ -315,6 +334,7 @@ Called on a permutor, it returns a reference on a array contening index^{th} per
 
 =item L<Algorithm::FastPermute>
 
+=back
 
 =head1 AUTHOR
 
