@@ -1,6 +1,6 @@
 package Math::Permute::Array;
 
-use 5.009000;
+use 5.00000;
 use strict;
 use warnings;
 
@@ -27,7 +27,7 @@ our @EXPORT = qw(
  Apply_on_perms
 );
 
-our $VERSION = '0.032';
+our $VERSION = '0.04';
 
 
 sub new
@@ -38,6 +38,7 @@ sub new
   $self->{iterator} = 0;
   $self->{cardinal} = undef;
   bless($self, $class);
+  return undef unless (defined $self->{array});
   return $self;
 }
 
@@ -62,6 +63,7 @@ sub Permute
 {
   my $rest = shift;
   my $array = shift;
+  return undef unless (defined $rest or defined $array);
   my @array = @{$array};
   my @res;
 
@@ -84,6 +86,7 @@ sub permutation
 {
   my $self = shift;
   my $rest = shift;
+  return undef unless (defined $self and defined $rest);
   my @array = @{$self->{array}};
   my @res;
   my $i = 0;
@@ -100,6 +103,7 @@ sub Apply_on_perms(&@)
 {
   my $func = shift;
   my $array = shift;
+  return undef unless (defined $func and defined $array);
   my $rest;
   my $i;
   my $j;
@@ -120,7 +124,7 @@ sub Apply_on_perms(&@)
     &$func(@res);
     @array = @{$array};
   }
-  return;
+  return 0;
 }
 
 sub cur
@@ -132,7 +136,7 @@ sub cur
 sub prev
 {
   my $self = shift;
-  return undef if($self->{iterator} <= 0);
+  return undef if($self->{iterator} == 0);
   $self->{iterator}--;
   return Math::Permute::Array::Permute($self->{iterator},$self->{array});
 }

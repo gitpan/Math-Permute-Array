@@ -1,5 +1,7 @@
 Revision history for Perl extension Math::Permute::Array.
 
+0.04   Thu Sep 18 13:51:28 2012
+  - improve the tests and chack if some undef values are provided
 0.032  Thu Sep 13 14:41:28 2012
   - update the documentation and improve the tests
 0.031  Thu Sep 13 11:41:28 2012

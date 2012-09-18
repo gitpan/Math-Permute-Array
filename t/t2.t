@@ -17,5 +17,6 @@ BEGIN { use_ok('Math::Permute::Array') };
 # its man page ( perldoc Test::More ) for help writing this test script.
 
 my @array = (1..8);
-Math::Permute::Array::Apply_on_perms { } \@array;
+my $err = Math::Permute::Array::Apply_on_perms { } \@array;
+exit(-1) unless($err == 0);
 
