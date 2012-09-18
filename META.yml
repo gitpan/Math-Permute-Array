@@ -1,9 +1,11 @@
 ---
-abstract: 'Perl extension for computing any permutation of an'
+abstract: 'Perl extension for computing any permutation of an array.'
 author:
   - 'jean-noel quintin <jnquintin@local>'
 build_requires:
-  ExtUtils::MakeMaker: 0
+  Exporter: 0
+  strict: 0
+  warnings: 0
 configure_requires:
   ExtUtils::MakeMaker: 0
 dynamic_config: 1
@@ -19,4 +21,4 @@ no_index:
     - inc
 requires:
   perl: 5.006001
-version: 0.041
+version: 0.042

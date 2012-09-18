@@ -1,6 +1,5 @@
 package Math::Permute::Array;
 
-use 5.00000;
 use strict;
 use warnings;
 
@@ -27,7 +26,7 @@ our @EXPORT = qw(
  Apply_on_perms
 );
 
-our $VERSION = '0.041';
+our $VERSION = '0.042';
 
 
 sub new
@@ -160,7 +159,7 @@ sub cardinal
 
 #this part come from:
 # www.theperlreview.com/SamplePages/ThePerlReview-v5i1.p23.pdf
-# Author: Alberto Manuel Simões
+# Author: Alberto Manuel Simoes
 sub factorial
 {
     my $value = shift;
@@ -178,10 +177,8 @@ __END__
 
 =head1 NAME
 
-Math::Permute::Array - Perl extension for computing any permutation of an
-array.
-The permutation could be access by an index in [0,cardinal] or by
-iterating with prev, cur and next.
+Math::Permute::Array - Perl extension for computing any permutation of an array.
+The permutation could be access by an index in [0,cardinal] or by iterating with prev, cur and next.
 
 
 =head1 SYNOPSIS

@@ -8,8 +8,12 @@
 
 use strict;
 use warnings;
+#this requirement is only to get the good INC
+use File::Basename;
 
-BEGIN { use_ok('Math::Permute::Array') };
+#to be able to run this example from every where
+BEGIN{my $dir= dirname($0); push @INC,"$dir/../lib";}
+use Math::Permute::Array;
 
 
 print "permutation with direct call to Permutate\n";

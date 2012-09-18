@@ -1,5 +1,5 @@
 {
-   "abstract" : "Perl extension for computing any permutation of an",
+   "abstract" : "Perl extension for computing any permutation of an array.",
    "author" : [
       "jean-noel quintin <jnquintin@local>"
    ],
@@ -22,7 +22,9 @@
    "prereqs" : {
       "build" : {
          "requires" : {
-            "ExtUtils::MakeMaker" : 0
+            "Exporter" : 0,
+            "strict" : 0,
+            "warnings" : 0
          }
       },
       "configure" : {
@@ -37,5 +39,5 @@
       }
    },
    "release_status" : "stable",
-   "version" : "0.041"
+   "version" : "0.042"
 }
